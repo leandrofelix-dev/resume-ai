@@ -4,11 +4,13 @@ import { Separator } from "./components/ui/separator";
 import { Textarea } from "./components/ui/textarea";
 import { Label } from "./components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./components/ui/select";
-import { Slider } from "./components/ui/slider";
-import { VideoInputForm } from "./components/video-input-form";
-import { PromptSelect } from "./components/prompt-select";
+import { Slider } from "./components/ui/slider"
+import { VideoInputForm } from "./components/video-input-form"
+import { PromptSelect } from "./components/prompt-select"
 import { useState } from "react";
 import { useCompletion } from 'ai/react'
+import { Sparkle } from 'lucide-react'
+
 
 export function App() {
   const [temperature, setTemperature] = useState(0.5)
@@ -34,20 +36,25 @@ export function App() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="px-6 py-3 flex items-center justify-between border-b">
-        <h1 className="text-xl font-bold">resume.ai</h1>
+      <div className="px-6 py-3 flex items-center justify-between border-b flex-col md:flex-row">
+        <div className="flex items-center justify-center mb-3 md:mb-0">
+          <Sparkle className='mr-1 text-violet-400'/>
+          <h1 className="text-xl font-bold">resume.ai</h1>
+        </div>
 
-        <div className="flex items-center gap-3">
-          <span className="text-sm text-muted-foreground">
+        <div className="flex items-center gap-3c flex-row-reverse md:flex-row">
+          <span className="text-sm text-muted-foreground text-left">
             Desenvolvido com 💜 por Leandro Felix
           </span>
 
-          <Separator orientation="vertical" className="h-6" />
+          <Separator orientation="vertical" className="h-6 mx-2" />
 
-          <Button variant="outline">
-            <Github className="w-4 h-4 mr-2" />
-            GitHub
-          </Button>
+          <a href="https://github.com/lehinfo-felix" target='blank'>
+            <Button variant="outline">
+              <Github className="w-4 h-4 mr-2"/>
+              GitHub
+            </Button>
+          </a>
         </div>
       </div>
 
@@ -111,7 +118,7 @@ export function App() {
                 onValueChange={value => setTemperature(value[0])}
               />
               <span className="block text-sm text-muted-foreground italic leading-relaxed">
-                Valores mais altor tendem a deixar o resultado mais criativo e com possíveis erros.
+                Valores mais altos tendem a deixar o resultado mais criativo e com possíveis erros.
               </span>
             </div>
 
